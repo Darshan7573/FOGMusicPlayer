@@ -4,7 +4,7 @@ import { FaHome, FaChartLine, FaMusic, FaCompass, FaCog, FaSignOutAlt } from "re
 
 const SideBar = () => {
     return (
-        <div className="bg-black flex flex-col w-[340px] h-screen p-6">
+        <div className="bg-black flex flex-col w-[250px] h-screen p-6">
             <div className="flex items-center space-x-2 w-[311px] mt-[26px]">
                 <IoMusicalNotes className="text-red-600  text-3xl w-[40px] h=[55.5px] top-[4.5px] left-[8px]" />
                 <h1 className="text-white font-bold text-xl">
