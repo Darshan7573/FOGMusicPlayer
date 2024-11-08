@@ -1,11 +1,11 @@
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   return (
-    <div>
+    <div className="h-screen">
       <HomePage />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

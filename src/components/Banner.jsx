@@ -1,6 +1,8 @@
+import SongList from "../components/SongList"
+
 const Banner = () => {
     return (
-        <div className="w-[800px] h-[343px] top-[150px] left-[100px] relative">
+        <div className="w-[800px] h-[343px] top-[150px] left-[100px] relative mt-[-10px]">
             <div className="flex flex-row absolute top-[30%] left-7 transform -translate-x-1/2 w-[15px] items-center gap-2">
                 <img src="/Vector.png" alt="Verified Icon" />
                 <p className="text-white">Verified</p>
@@ -15,8 +17,11 @@ const Banner = () => {
             />
             <img
                 src="/Michael.png"
-                className="absolute top-[-158px] left-[30%] w-[535px] h-[452px]"
+                className="absolute top-[-158px] left-[30%] w-[535px] h-[501px]"
             />
+            <div>
+                <SongList />
+            </div>
         </div>
     );
 };
