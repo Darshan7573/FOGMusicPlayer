@@ -4,7 +4,8 @@ import { FaHome, FaChartLine, FaMusic, FaCompass, FaCog, FaSignOutAlt } from "re
 
 const SideBar = () => {
     return (
-        <div className="bg-black flex flex-col justify-between w-[250px] h-screen p-6">
+        <div className="bg-[#0E0E0E]
+ flex flex-col justify-between w-[250px] h-screen p-6">
             <div>
                 <div className="flex items-center space-x-2 w-[311px] mt-[26px]">
                     <IoMusicalNotes className="text-red-600  text-3xl w-[40px] h=[55.5px] top-[4.5px] left-[8px]" />
@@ -13,7 +14,7 @@ const SideBar = () => {
                     </h1>
                 </div>
 
-                <div className="mt-[140px] left-[70px]">
+                <div className="mt-[60px] left-[70px]">
                     <div className="">
                         <p className="text-white text-xs uppercase">Menu</p>
                     </div>
