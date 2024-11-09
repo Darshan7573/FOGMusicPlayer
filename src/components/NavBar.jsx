@@ -4,11 +4,11 @@ const NavBar = () => {
     return (
         <div className="items-center p-[35px] ml-[100px] mt-9">
             <div className="flex flex-row  h-[27px] top-[45px] left-[519px] gap-[50px]">
-                <ul className="flex flex-row gap-6 text-sm text-white cursor-pointer">
-                    <li>Music</li>
-                    <li>Podcast</li>
-                    <li>Live</li>
-                    <li>Radio</li>
+                <ul className="flex flex-row gap-6 text-sm font-semibold text-white cursor-pointer ">
+                    <li className="hover:text-black">Music</li>
+                    <li className="hover:text-black">Podcast</li>
+                    <li className="hover:text-black">Live</li>
+                    <li className="hover:text-black">Radio</li>
                 </ul>
                 <div className="relative ml-[100px] flex items-center">
                     <input
