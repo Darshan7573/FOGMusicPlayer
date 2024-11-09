@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Howl } from 'howler';
-import { FaPlay, FaPause, FaForward, FaBackward, FaRedo } from 'react-icons/fa';
-import { TfiLoop } from "react-icons/tfi";
+import { FaPause, } from 'react-icons/fa';
 
 
 const Player = ({ currentSong, onNext, onPrev }) => {
@@ -10,7 +9,6 @@ const Player = ({ currentSong, onNext, onPrev }) => {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isLooping, setIsLooping] = useState(false);
-    const [volume, setVolume] = useState(1); // Volume state (0-1)
 
 
     console.log(currentSong)
@@ -25,7 +23,6 @@ const Player = ({ currentSong, onNext, onPrev }) => {
             soundRef.current = new Howl({
                 src: [currentSong.file],
                 html5: true,
-                volume,
                 onplay: () => {
                     setDuration(soundRef.current.duration());
                     setIsPlaying(true); // Set playing status to true when song starts
@@ -50,7 +47,7 @@ const Player = ({ currentSong, onNext, onPrev }) => {
                 soundRef.current.unload(); // Clean up the song
             }
         };
-    }, [currentSong, isLooping, volume, onNext]);
+    }, [currentSong, isLooping, onNext]);
 
     const updateTime = () => {
         if (soundRef.current && isPlaying) {
@@ -87,7 +84,7 @@ const Player = ({ currentSong, onNext, onPrev }) => {
             <div className="w-50 p-4 bg-[#6B0000] text-white rounded-lg flex flex-col items-center">
                 <h3 className="text-sm mb-2">Now Playing</h3>
                 <img src={currentSong.image} alt={currentSong.name} className="w-40 h-40 rounded-lg mb-4" />
-                <h4 className="text-lg font-bold">{currentSong.name}</h4>
+                <h4 className="text-lg font-bold">{currentSong.name.slice(0, 15)}</h4>
 
                 <div className="flex items-center gap-4 mt-4">
                     <span className='text-sm'>{formatTime(currentTime)}</span>
@@ -102,16 +99,16 @@ const Player = ({ currentSong, onNext, onPrev }) => {
                     <span className='text-sm'>{formatTime(duration)}</span>
                 </div>
 
-                <div className="flex items-center gap-6 mt-4">
-                    <TfiLoop onClick={() => setIsLooping(!isLooping)} className='cursor-pointer text-md' />
-                    <FaBackward onClick={onPrev} className="cursor-pointer text-sm" />
+                <div className="flex items-center justify-between mt-4 h-10 w-full">
+                    <img src='/Repeat.svg' onClick={() => setIsLooping(!isLooping)} className='cursor-pointer text-md' />
+                    <img src='/Backward.svg' onClick={onPrev} className="cursor-pointer text-sm" />
                     {isPlaying ? (
-                        <FaPause onClick={togglePlayPause} className="cursor-pointer text-sm" />
+                        <FaPause onClick={togglePlayPause} className="cursor-pointer text-sm w-10 h-6" />
                     ) : (
-                        <FaPlay onClick={togglePlayPause} className="cursor-pointer text-sm" />
+                        <img src='/Play.svg' onClick={togglePlayPause} className="cursor-pointer text-sm" />
                     )}
-                    <FaForward onClick={onNext} className="cursor-pointer text-sm" />
-                    <FaRedo
+                    <img src='/Next.svg' onClick={onNext} className="cursor-pointer text-sm" />
+                    <img src='/Random.svg'
                         className={`cursor-pointer text-sm ${isLooping ? 'text-yellow-400' : ''}`}
                     />
                 </div>
