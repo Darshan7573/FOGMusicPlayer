@@ -1,17 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { Howl } from 'howler';
-import { FaPause, } from 'react-icons/fa';
+import { FaPause } from 'react-icons/fa';
+import { IoCloudyNight } from 'react-icons/io5';
 
-
-const Player = ({ currentSong, onNext, onPrev }) => {
+const Player = ({ currentSong, onNext, onPrev, songsData }) => {
     const soundRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [isLooping, setIsLooping] = useState(false);
-
-
-    console.log(currentSong)
+    const [isRandom, setIsRandom] = useState(false);
 
     useEffect(() => {
         if (currentSong && soundRef.current) {
@@ -19,7 +17,7 @@ const Player = ({ currentSong, onNext, onPrev }) => {
         }
 
         if (currentSong) {
-            // Initialize Howl for new song
+            // Initialize Howl for the new song
             soundRef.current = new Howl({
                 src: [currentSong.file],
                 html5: true,
@@ -33,7 +31,7 @@ const Player = ({ currentSong, onNext, onPrev }) => {
                         soundRef.current.play(); // Replay if looping
                     } else {
                         setIsPlaying(false); // Stop playing when song ends
-                        onNext(); // Go to the next song automatically
+                        handleNext(); // Call handleNext on song end (random or regular)
                     }
                 }
             });
@@ -47,7 +45,7 @@ const Player = ({ currentSong, onNext, onPrev }) => {
                 soundRef.current.unload(); // Clean up the song
             }
         };
-    }, [currentSong, isLooping, onNext]);
+    }, [currentSong, isLooping, isRandom, onNext]);
 
     const updateTime = () => {
         if (soundRef.current && isPlaying) {
@@ -72,15 +70,32 @@ const Player = ({ currentSong, onNext, onPrev }) => {
         setCurrentTime(newTime);
     };
 
-
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60) || 0;
         const seconds = Math.floor(time % 60) || 0;
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    // Function to handle random song selection
+    const handleRandomSong = () => {
+        const randomIndex = Math.floor(Math.random() * songsData.length); // Get a random index
+        const randomSong = songsData[randomIndex]; // Get the random song object
+        console.log(randomSong)
+        onNext(randomSong); // Pass the random song object to onNext
+    };
+
+
+    // Handle next button click (checks for random mode)
+    const handleNext = () => {
+        if (isRandom) {
+            handleRandomSong(); // If random mode is on, select a random song
+        } else {
+            onNext(); // Normal next song behavior
+        }
+    };
+
     return currentSong && (
-        <div className='flex flex-col justify-end  ml-4 mr-3 mt-[180%]'>
+        <div className='flex flex-col justify-end ml-4 mr-3 mt-[180%]'>
             <div className="w-50 p-4 bg-[#6B0000] text-white rounded-lg flex flex-col items-center">
                 <h3 className="text-sm mb-2">Now Playing</h3>
                 <img src={currentSong.image} alt={currentSong.name} className="w-40 h-40 rounded-lg mb-4" />
@@ -107,9 +122,13 @@ const Player = ({ currentSong, onNext, onPrev }) => {
                     ) : (
                         <img src='/Play.svg' onClick={togglePlayPause} className="cursor-pointer text-sm" />
                     )}
-                    <img src='/Next.svg' onClick={onNext} className="cursor-pointer text-sm" />
-                    <img src='/Random.svg'
-                        className={`cursor-pointer text-sm ${isLooping ? 'text-yellow-400' : ''}`}
+                    <img src='/Next.svg' onClick={handleNext} className="cursor-pointer text-sm" />
+                    <img
+                        src='/Random.svg'
+                        className={`cursor-pointer text-sm ${isRandom ? 'text-yellow-400' : ''}`}
+                        onClick={() => {
+                            handleRandomSong();
+                        }}
                     />
                 </div>
             </div>

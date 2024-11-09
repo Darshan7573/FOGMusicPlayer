@@ -2,6 +2,9 @@
 // SongList.js
 import { songsData } from '../assets/assets';
 import { IoMusicalNotes } from "react-icons/io5";
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+
+
 
 const SongList = ({ setCurrentSong, currentSong }) => {
 

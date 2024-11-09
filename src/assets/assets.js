@@ -1,6 +1,3 @@
-import song1 from './song1.mp3'
-import song2 from './song2.mp3'
-import song3 from './song3.mp3'
 import song4 from './Michael Jackson - They Dont Care About Us (Brazil Version) (Official Video).mp3'
 import song5 from './Billie Jean (Official Video).mp3'
 import song6 from './Thriller.mp3'
@@ -30,75 +27,6 @@ import img20 from './bad.png'
 export const songsData = [
     {
         id: 1,
-        name: "Song One",
-        image: img1,
-        file: song1,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "3:00",
-        plays: '450000'
-    },
-    {
-        id: 2,
-        name: "Song Two",
-        image: img2,
-        file: song2,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "2:20",
-        plays: '450000'
-
-    },
-    {
-        id: 3,
-        name: "Song Three",
-        image: img3,
-        file: song3,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "2:32",
-        plays: '450000'
-
-    },
-    {
-        id: 4,
-        name: "Song Four",
-        image: img4,
-        file: song1,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "2:50",
-        plays: '450000'
-
-    },
-    {
-        id: 5,
-        name: "Song Five",
-        image: img5,
-        file: song2,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "3:10",
-        plays: '450000'
-
-    },
-    {
-        id: 6,
-        name: "Song Seven",
-        image: img7,
-        file: song1,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "2:18",
-        plays: '450000'
-
-    },
-    {
-        id: 7,
-        name: "Song Eight",
-        image: img12,
-        file: song2,
-        desc: "Put a smile on your face with these happy tunes",
-        duration: "2:35",
-        plays: '450000'
-
-    },
-    {
-        id: 8,
         name: "They Don't care about us",
         image: img13,
         file: song4,
@@ -107,7 +35,7 @@ export const songsData = [
         plays: '1,100,000,000'
     },
     {
-        id: 9,
+        id: 2,
         name: "Billie Jean",
         image: img14,
         file: song5,
@@ -116,16 +44,16 @@ export const songsData = [
         plays: '1,722,622,989'
     },
     {
-        "id": 10,
-        "name": "Thriller",
-        "image": img15,
-        "file": song6,
-        "desc": "Thriller",
-        "duration": "13:42",
-        "plays": "1,493,223,276"
+        id: 3,
+        name: "Thriller",
+        image: img15,
+        file: song6,
+        desc: "Thriller",
+        duration: "13:42",
+        plays: "1,493,223,276"
     },
     {
-        "id": 11,
+        "id": 4,
         "name": "Beat It",
         "image": img16,
         "file": song7,
@@ -134,7 +62,7 @@ export const songsData = [
         "plays": "1,123,456,789"
     },
     {
-        "id": 12,
+        "id": 5,
         "name": "Smooth Criminal",
         "image": img17,
         "file": song8,
@@ -143,8 +71,8 @@ export const songsData = [
         "plays": "1,045,678,123"
     },
     {
-        "id": 13,
-        "name": "Black or White",
+        id: 6,
+        name: "Black or White",
         "image": img18,
         "file": song9,
         "desc": "Dangerous",
@@ -152,21 +80,21 @@ export const songsData = [
         "plays": "980,765,432"
     },
     {
-        "id": 14,
-        "name": "Man in the Mirror",
-        "image": img19,
-        "file": song10,
-        "desc": "Bad",
-        "duration": "5:03",
-        "plays": "856,923,101"
+        id: 7,
+        name: "Man in the Mirror",
+        image: img19,
+        file: song10,
+        desc: "Bad",
+        duration: "5:03",
+        plays: "856,923,101"
     },
     {
-        "id": 15,
-        "name": "Bad",
-        "image": img20,
-        "file": song11,
-        "desc": "Bad",
-        "duration": "4:20",
-        "plays": "1,111,222,333"
+        id: 8,
+        name: "Bad",
+        image: img20,
+        file: song11,
+        desc: "Bad",
+        duration: "4:20",
+        plays: "1,111,222,333"
     },
 ]

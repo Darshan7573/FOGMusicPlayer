@@ -41,6 +41,7 @@ const HomePage = () => {
                     currentSong={currentSong} // Pass currentSong to Player
                     onNext={handleNextSong}
                     onPrev={handlePrevSong}
+                    songsData={songsData}
                 />
             </div>
         </div>
